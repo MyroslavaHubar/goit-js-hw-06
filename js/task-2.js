@@ -1,3 +1,26 @@
+'use strict';
+
+class Storage {
+  #items;
+
+  constructor(params) {
+    this.#items = params;
+  }
+
+  getItems() {
+    return this.#items;
+  }
+
+  addItem(newItem) {
+    this.#items.push(newItem);
+  }
+
+  removeItem(itemToRemove) {
+    const indexItem = this.#items.indexOf(itemToRemove);
+    indexItem !== -1 ? this.#items.splice(indexItem, 1) : this.#items;
+  }
+}
+
 const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
 console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
 
